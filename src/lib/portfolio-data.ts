@@ -78,13 +78,13 @@ export const projects: Project[] = [
     description:
       "A safety dashboard that helps teams understand locations, risks, and incidents through a clearer spatial interface.",
     year: "2026",
-    duration: "6 weeks",
+    duration: "8 weeks",
     role: "UI / UX intern",
     image: omnilorImage,
     imageAlt: "Omnilor map-based safety dashboard displayed on a laptop",
     tone: "blue",
     challenge:
-      "Safety systems can hold a huge amount of information. The challenge was to show more information without making people understand what matters right now.",
+      "Safety systems can hold a huge amount of information. The challenge was to help people understand what matters right now.",
     approach:
       "A transparent care journey that helps operators move from map overview to building detail without losing context.",
     outcome: "A clearer way to read a complex situation, built around context.",
@@ -171,7 +171,7 @@ export const projects: Project[] = [
   {
     slug: "mintro",
     title: "Mintro",
-    category: "Fintech · Product concept",
+    category: "Fintech · Product design",
     description:
       "A round-up savings app designed to make small, everyday saving feel simple and achievable.",
     year: "2026",

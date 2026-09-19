@@ -30,12 +30,14 @@ function AboutPage() {
       <SectionTitle eyebrow="Behind the screens" index="03">
         Curious by nature.
         <br />
-        <em>Designer by practice.</em>
+        <em>Designer by practice</em>
       </SectionTitle>
       <div className="about-story">
         <div className="portrait-scene" aria-label="A stylized portrait scene for Fatma">
           <img className="portrait-photo" src={fatmaImage} alt="Fatma Mourad" />
-          <span className="doodle-star">✦</span>
+          <span className="doodle-star" aria-hidden="true">
+            ✦
+          </span>
           <SpeechBubble>
             I’m always asking:
             <br />
@@ -51,10 +53,10 @@ function AboutPage() {
             I enjoy turning complex ideas into simple interfaces while thinking about both the user
             and the product behind the screen. I’m curious, detail-oriented, and always learning
             something new - from product design and business to languages, technology and even
-            Blockchain!{" "}
+            Blockchain !.
           </p>
           <p className="location-note">
-            <strong>• Currently based in:</strong> Heliopolis, Cairo.
+            <strong>• Currently based in :</strong> Heliopolis , Cairo .
           </p>
         </div>
       </div>
@@ -97,12 +99,12 @@ function AboutPage() {
         <div>
           <h2>Tools I use</h2>
           <p>
-            <strong className="tool-label">Design Tools:</strong> Figma · Framer · Balsamiq ·
-            Illustrator · Photoshop · Obsidian
+            <strong className="tool-label">Design Tools:</strong> Figma · Obsidian · Framer ·
+            Balsamiq · Illustrator · ps
           </p>
           <p>
-            <strong className="tool-label">AI Tools:</strong> Claude · Perplexity · Runway ·
-            Antigravity · ChatGPT · Codex · Manus
+            <strong className="tool-label">Ai Tools:</strong> Claude · Perplexity · Runway ·
+            Antigravity · Chatgpt · Codex · Manus
           </p>
           <p>
             <strong className="tool-label">Tech Tools:</strong> Github · Vercel · VS Code
@@ -112,7 +114,7 @@ function AboutPage() {
           <Coffee />
           <p>
             Offline, I watch animated sitcoms, read comic books, listen to a lot of music, and draw
-            comics badly. The last one may or may not explain this website.
+            comics badly.The last one may or may not explain this website.
           </p>
         </div>
       </section>

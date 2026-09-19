@@ -70,7 +70,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
             height={912}
             loading="lazy"
           />
-          <span className="panel-number">0{index + 1}</span>
+          {project.slug !== "mintro" && <span className="panel-number">0{index + 1}</span>}
           {project.slug === "omnilor" && (
             <span className="project-doodle-star" aria-hidden="true">
               ✦

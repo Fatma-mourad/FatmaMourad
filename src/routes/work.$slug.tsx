@@ -1,7 +1,12 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowDownToLine, ArrowLeft, ArrowRight, Music2 } from "lucide-react";
+import { ArrowDownToLine, ArrowLeft, ArrowRight, CloudSun } from "lucide-react";
 import { ComicPanel, Tag } from "@/components/portfolio-ui";
+import { DashboardPlayer } from "@/components/dashboard-player";
 import { getProject, projects } from "@/lib/portfolio-data";
+import type { ReactNode } from "react";
+import audioImage from "@/assets/audio component.png";
+import garlicPdf from "@/assets/GarLicCaseStudy.pdf?url";
+import mintroPdf from "@/assets/UX research- Mintro.pdf?url";
 import designSystemPdf from "@/assets/blues design system.pdf?url";
 import omnilorPrototype from "@/assets/Omnilor Prototype.mp4?url";
 
@@ -54,99 +59,7 @@ function CaseStudy() {
   if (project.slug === "omnilor") {
     return <OmnilorCaseStudy project={project} next={next} current={current} />;
   }
-  return (
-    <article className={`case-study case-${project.tone}`}>
-      <header className="case-hero">
-        <Link to="/work" className="back-link">
-          <ArrowLeft /> All work
-        </Link>
-        <div className="case-title">
-          <p>{project.category}</p>
-          <h1>{project.title}</h1>
-          <p className="case-deck">{project.description}</p>
-          <div className="case-tags">
-            <Tag>{project.role}</Tag>
-            <Tag>{project.duration}</Tag>
-            <Tag>{project.year}</Tag>
-          </div>
-        </div>
-        <div className="case-cover">
-          <img src={project.image} alt={project.imageAlt} width={1200} height={912} />
-          <span>Case study / 0{current + 1}</span>
-        </div>
-      </header>
-      <div className="case-body">
-        <section className="case-opening">
-          <p className="chapter-label">The setup</p>
-          <h2>{project.challenge}</h2>
-        </section>
-        <div className="case-columns">
-          <ComicPanel>
-            <span className="panel-label">Challenge</span>
-            <p>{project.challenge}</p>
-          </ComicPanel>
-          <ComicPanel>
-            <span className="panel-label">Approach</span>
-            <p>{project.approach}</p>
-          </ComicPanel>
-        </div>
-        {project.chapters.map((chapter, chapterIndex) => (
-          <section className="case-chapter" key={chapter.title}>
-            <p className="chapter-label">{chapter.eyebrow}</p>
-            <h2>
-              {chapter.title} <em>{chapter.accent}</em>
-            </h2>
-            {chapter.body && <p className="chapter-copy">{chapter.body}</p>}
-            {chapter.items && (
-              <div className="process-strip" aria-label={chapter.eyebrow}>
-                {chapter.items.map((item, itemIndex) => (
-                  <div key={item}>
-                    <span>0{itemIndex + 1}</span>
-                    <h3>{item}</h3>
-                  </div>
-                ))}
-              </div>
-            )}
-            {chapterIndex === 1 && (
-              <div className="prototype-frame">
-                <img
-                  src={project.image}
-                  alt={`${project.title} interface detail`}
-                  width={1200}
-                  height={912}
-                  loading="lazy"
-                />
-              </div>
-            )}
-          </section>
-        ))}
-        <section className="outcome-section">
-          <div>
-            <p className="chapter-label">What changed</p>
-            <h2>
-              A clearer path,
-              <br />
-              <em>made tangible.</em>
-            </h2>
-            <p>{project.outcome}</p>
-          </div>
-          <div className="metric-grid">
-            {project.metrics.map((metric) => (
-              <div key={metric.label}>
-                <strong>{metric.value}</strong>
-                <span>{metric.label}</span>
-              </div>
-            ))}
-          </div>
-        </section>
-        <Link to="/work/$slug" params={{ slug: next.slug }} className="next-case">
-          <span>Next story</span>
-          <strong>{next.title}</strong>
-          <ArrowRight aria-hidden="true" />
-        </Link>
-      </div>
-    </article>
-  );
+  return null;
 }
 
 const bluesDetail = {
@@ -155,9 +68,9 @@ const bluesDetail = {
     "A minimalist, high-end shopping experience for a fictional fashion brand built entirely around one color.",
   tags: ["Product designer", "2 weeks", "2026"],
   setupHeading: "A little love letter to blue",
-  goal: "The goal was to create a minimalist, high-end e-commerce experience for a fictional fashion brand built around a monochromatic blue identity.",
+  goal: "the goal was to create a minimalist, high-end e-commerce experience for a fictional fashion brand built around a monochromatic blue identity.",
   approach:
-    "Combine typography, photography, motion, and ambient audio into an editorial fashion experience without making shopping feel complicated.",
+    "Combine typography, photography, motion, and ambient audio into one editorial fashion experience without making shopping feel complicated.",
   process: [
     ["Define", "Shape the brand idea and the shopping structure it needs to support."],
     ["Direct", "Establish the blue visual language across mood, tone, and imagery."],
@@ -165,17 +78,17 @@ const bluesDetail = {
     ["Build", "Translate the system into a responsive, working website."],
   ],
   changed: [
-    "Use visual language shared across every screen, from homepage to checkout.",
-    "Reusable components - buttons, cards, inputs - instead of one-off designs.",
-    "Fully responsive system available on desktop, tablet, and mobile devices.",
+    "One visual language shared across every screen, from homepage to checkout.",
+    "Reusable components - buttons, cards, inputs - instead of one-off screens.",
+    "Multiple interface states designed up front, not patched in later.",
   ],
   audioDescription:
-    "An ambient soundtrack could easily distract from shopping. The player needed to feel present without ever competing for attention.",
+    "An ambient soundtrack could easily distract from shopping. The player needed to feel present without ever asking for attention.",
   audioPoints: [
     "Starts as a small, unobtrusive control tucked into the corner of the screen.",
-    "The user chooses whether to interact; nothing plays without consent.",
+    "The user chooses whether to interact nothing plays without consent.",
     "The player expands in place to reveal playback controls.",
-    "Audio supports the mood of the collection without ever interrupting the site.",
+    "Audio supports the mood of the collection without ever interrupting the shop.",
   ],
   outcome: "From personal inspiration to a working product.",
   outcomes: [
@@ -201,11 +114,16 @@ function DetailHero({
 }: DetailProps & { category: string; description: string; tags: string[] }) {
   return (
     <header className="case-hero">
-      <Link to="/work" className="back-link">
-        <ArrowLeft /> All work
-      </Link>
+      <div className="case-container case-back-row">
+        <Link to="/work" className="back-link">
+          <ArrowLeft /> All work
+        </Link>
+      </div>
       <div className="case-title">
-        <p>{category}</p>
+        <p>
+          {category}
+          {project.slug === "mintro" && <span className="case-year">2026</span>}
+        </p>
         <h1>{project.title}</h1>
         <p className="case-deck">{description}</p>
         <div className="case-tags">
@@ -215,6 +133,12 @@ function DetailHero({
         </div>
       </div>
       <div className="case-cover">
+        {project.slug === "omnilor" && (
+          <i className="case-spark" aria-hidden="true">
+            ✦
+          </i>
+        )}
+        {project.slug === "garlic" && <CloudSun className="case-weather" aria-hidden="true" />}
         <img src={project.image} alt={project.imageAlt} width={1200} height={912} />
         <span>Case study / 0{current + 1}</span>
       </div>
@@ -234,25 +158,25 @@ function DetailNext({ next }: { next: (typeof projects)[number] }) {
 
 function GarlicCaseStudy({ project, next, current }: DetailProps) {
   const strategy = [
-    "Define product direction",
-    "UI/UX design",
-    "Brand architecture & system",
-    "Build modern frontend",
-    "Web & app development",
+    "Communicate the services",
+    "Build trust",
+    "Make the offer easy to understand",
+    "A modern visual identity",
+    "Arabic & English support",
   ];
   const architecture = [
-    "Clear value proposition",
+    "Main value proposition",
     "Services",
-    "Selected work",
-    "Process & working style",
+    "Solutions",
+    "Supporting information",
     "Contact",
   ];
   const visual = [
     "Strong typography",
-    "High contrast colors",
-    "Structured content layout",
-    "Minimalist visual cadence",
-    "Interactive components",
+    "Generous spacing",
+    "Clear content hierarchy",
+    "Controlled visual elements",
+    "Consistent components",
   ];
   return (
     <article className="case-study custom-case garlic-case-study">
@@ -260,31 +184,36 @@ function GarlicCaseStudy({ project, next, current }: DetailProps) {
         project={project}
         next={next}
         current={current}
-        category="Branding, Website Design, Content Strategy"
-        description="A digital agency portfolio built for clear communication, showcasing digital services, brand strategy, and bilingual support."
-        tags={["Website design", "2 weeks", "2023"]}
+        category="Website Design · Brand Direction · Bilingual Experience"
+        description="A digital solutions website designed to make complex services feel clear, approachable, and easy to understand."
+        tags={["Product Designer", "4 weeks", "2026"]}
       />
-      <div className="case-body">
+      <div className="case-body case-container">
         <section className="custom-intro">
           <div>
             <p className="chapter-label">The challenge</p>
             <h2>How can a digital company sound capable without sounding corporate?</h2>
           </div>
-          <a className="custom-action" href="#garlic-strategy">
-            Visit live website <ArrowRight />
+          <a className="custom-action" href={garlicPdf} download="Garlic Case Study.pdf">
+            <ArrowDownToLine /> Download case study
           </a>
         </section>
         <ComicPanel>
           <p>
-            A digital agency portfolio needs to speak clearly about services, process, and
-            messaging. The challenge was to create a modern agency site that feels competent,
-            approachable, and transparent without relying on corporate jargon.
+            Digital agencies often use the same visual language and generic messaging. The challenge
+            was a site that feels professional and trustworthy, while staying approachable and
+            distinctive.
           </p>
         </ComicPanel>
         <section className="custom-section" id="garlic-strategy">
-          <p className="chapter-label">The strategy</p>
+          <p className="chapter-label">The Brief</p>
           <h2>
-            Clear services. <em>A stronger first impression.</em>
+            Clear services.
+            <br />{" "}
+            <em>
+              A stronger first
+              <br /> impression
+            </em>
           </h2>
           <div className="custom-pills">
             {strategy.map((item) => (
@@ -295,13 +224,18 @@ function GarlicCaseStudy({ project, next, current }: DetailProps) {
         <CustomNumberSection
           className="garlic-architecture"
           eyebrow="Content architecture"
-          heading="What a first-time visitor needs, in order"
+          heading={
+            <>
+              What a first-time
+              <br /> visitor <em>needs, in order</em>
+            </>
+          }
           items={architecture}
         />
         <section className="custom-section">
           <p className="chapter-label">Visual direction</p>
           <h2>
-            Approachable, modern, <em>and clear.</em>
+            Approachable, modern, <em>and clear</em>
           </h2>
           <div className="custom-pills">
             {visual.map((item) => (
@@ -312,38 +246,44 @@ function GarlicCaseStudy({ project, next, current }: DetailProps) {
         <section className="custom-section garlic-bilingual">
           <p className="chapter-label">Bilingual design</p>
           <h2>
-            Designing for <em>two reading directions.</em>
+            Designing for <em>two</em> reading
+            <br /> directions.
           </h2>
           <div className="custom-dual-grid">
             <ComicPanel>
               <strong>English - LTR</strong>
-              <p>
-                Left-aligned typography and structured layout optimized for reading left to right.
-              </p>
+              <h3>Digital solutions, ship simply.</h3>
+              <p>Left-aligned heading, left-to-right flow, nav reading left to right.</p>
               <div className="custom-pills">
-                <span>LTR typography</span>
-                <span>UI grid</span>
-                <span>Balanced spacing</span>
+                <span>Left align</span>
+                <span>LTR icons</span>
+                <span>Standard spacing</span>
               </div>
             </ComicPanel>
             <ComicPanel>
-              <strong>Arabic - RTL</strong>
-              <p>Right-aligned typography designed for seamless right-to-left reading flow.</p>
+              <strong lang="ar" dir="rtl">
+                العربية - RTL
+              </strong>
+              <h3 lang="ar" dir="rtl">
+                حلول رقمية ، بشكل واضح
+              </h3>
+              <p>
+                Mirrored layout, right-aligned heading, nav and icons flipped to match reading
+                direction.
+              </p>
               <div className="custom-pills">
-                <span>RTL font pairing</span>
-                <span>Consistent spacing</span>
-                <span>Equal hierarchy</span>
+                <span>Adjusted line length</span>
+                <span>Mirrored icons</span>
+                <span>Right align</span>
               </div>
             </ComicPanel>
           </div>
         </section>
         <section className="custom-section">
           <p className="chapter-label">Responsive experience</p>
-          <h2>
-            Adapted, <em>not just shrunk.</em>
-          </h2>
+          <h2>Adapted, not just shrunk.</h2>
           <div className="custom-responsive-grid">
-            {["Desktop", "Tablet", "Mobile"].map((item) => (
+            {["Desktop", "tablet", "Mobile"].map((item) => (
               <div key={item}>
                 <span>{item}</span>
               </div>
@@ -351,11 +291,15 @@ function GarlicCaseStudy({ project, next, current }: DetailProps) {
           </div>
         </section>
         <CustomOutcome
-          heading="A digital solutions website with a clearer voice."
+          heading={
+            <>
+              A digital solutions website with <em>a clearer voice.</em>
+            </>
+          }
           items={[
-            "Functional & responsive website layout",
-            "Scalable UI components",
-            "Precise content architecture",
+            "Structured information architecture",
+            "Reusable UI components",
+            "Responsive experience",
             "Arabic & English support",
           ]}
         />
@@ -367,11 +311,11 @@ function GarlicCaseStudy({ project, next, current }: DetailProps) {
 
 function MintroCaseStudy({ project, next, current }: DetailProps) {
   const journey = [
-    ["Discover", "Onboarding and quick feature walkthrough."],
-    ["Connect", "Linking payment methods."],
-    ["Spend", "Card usage triggers transaction tracking."],
-    ["Save", "Auto-roundups accumulate small differences."],
-    ["Track", "View accumulated micro-savings."],
+    ["Discover", "Understand how round-up saving works."],
+    ["Connect", "Link a financial source."],
+    ["Spend", "Use the connected account normally."],
+    ["Save", "Automatically collect the difference."],
+    ["Track", "See progress and recent activity."],
   ];
   return (
     <article className="case-study custom-case mintro-case-study">
@@ -379,31 +323,38 @@ function MintroCaseStudy({ project, next, current }: DetailProps) {
         project={project}
         next={next}
         current={current}
-        category="Product Design / Fintech / Product Concept"
-        description="A FinTech product concept that makes saving money feel automatic and invisible."
-        tags={["Product design", "2 weeks", "2023"]}
+        category="Product Design · Fintech · Product Concept"
+        description="A fintech product concept that makes saving money feel automatic and accessible."
+        tags={["Product designer", "3 months", "2026"]}
       />
-      <div className="case-body">
+      <div className="case-body case-container">
         <section className="custom-intro">
           <div>
-            <p className="chapter-label">The thought</p>
-            <h2>Saving doesn&apos;t have to feel like another task.</h2>
+            <p className="chapter-label">The insight</p>
+            <h2>
+              Saving doesn&apos;t have to feel
+              <br /> <em>like another task.</em>
+            </h2>
           </div>
-          <a className="custom-action" href="#mintro-idea">
-            Download case study <ArrowDownToLine />
+          <a className="custom-action" href={mintroPdf} download="Mintro UX Research.pdf">
+            <ArrowDownToLine /> Download case study
           </a>
         </section>
         <ComicPanel>
           <p>
-            Saving money routinely is heavy work and building a consistent habit is hard -
-            especially when the amounts are small. MINTRO explores how saving could happen naturally
-            in the background through automatic round-ups.
+            Saving sounds easy in theory, but building a consistent habit is hard - especially when
+            the amounts are small. <em className="inline-project-name">MINTRO</em> explores how
+            saving could happen naturally, in the background, through automatic round-ups.
           </p>
         </ComicPanel>
         <section className="custom-section" id="mintro-idea">
-          <p className="chapter-label">The idea / hook</p>
+          <p className="chapter-label">The core idea</p>
           <h2>
-            Turn everyday spending into <em>small progress.</em>
+            Turn everyday spending{" "}
+            <em>
+              into
+              <br /> small progress.
+            </em>
           </h2>
           <div className="mintro-calculation">
             <strong>
@@ -412,8 +363,8 @@ function MintroCaseStudy({ project, next, current }: DetailProps) {
             <b>+1.50 EGP saved</b>
           </div>
           <p>
-            The practice of rounding up everyday purchases and automatically transferring the
-            difference toward short-term savings.
+            The product rounds up everyday purchases and automatically transfers the difference
+            toward the user's savings.
           </p>
         </section>
         <section className="custom-section">
@@ -432,12 +383,12 @@ function MintroCaseStudy({ project, next, current }: DetailProps) {
           </div>
         </section>
         <section className="custom-section">
-          <p className="chapter-label">Product structure</p>
+          <p className="chapter-label">the Product structure</p>
           <h2>
             A simple product, built around <em>visibility.</em>
           </h2>
           <p>
-            A lightweight financial loop that makes the accumulation of small balances clear and
+            A lightweight planning loop that makes the sustainable choice feel easier, useful, and
             pleasantly ordinary.
           </p>
           <div className="custom-pills">
@@ -454,13 +405,13 @@ function MintroCaseStudy({ project, next, current }: DetailProps) {
           </div>
         </section>
         <section className="custom-section">
-          <p className="chapter-label">Built for transparency</p>
+          <p className="chapter-label">Trust & Transparency</p>
           <h2>Simple doesn&apos;t mean unclear.</h2>
           <div className="custom-card-grid">
             {[
-              ["What you spent", "The user sees the original transaction amount, unaltered."],
-              ["What you saved", "The rounded-up amount is shown secondary, never bundled in."],
-              ["Where it went", "Clear feedback on the destination of every saved amount."],
+              ["What was Spent", "The user sees the original transaction amount, unaltered."],
+              ["What was Saved", "The rounded-up amount is shown separately, never bundled in."],
+              ["Where It Went", "Clear feedback on the destination of every saved amount."],
             ].map(([title, text]) => (
               <ComicPanel key={title}>
                 <strong>{title}</strong>
@@ -471,7 +422,7 @@ function MintroCaseStudy({ project, next, current }: DetailProps) {
         </section>
         <section className="custom-section mintro-dashboard">
           <div>
-            <p className="chapter-label">Dashboard access</p>
+            <p className="chapter-label">Dashboard logic</p>
             <h2>
               Everything visible, <em>nothing buried.</em>
             </h2>
@@ -491,7 +442,11 @@ function MintroCaseStudy({ project, next, current }: DetailProps) {
           </ComicPanel>
         </section>
         <CustomOutcome
-          heading="A small habit with product potential."
+          heading={
+            <>
+              A small habit with <em>product potential.</em>
+            </>
+          }
           items={[
             "Automatic round-up savings",
             "Clear financial feedback",
@@ -530,33 +485,34 @@ function OmnilorCaseStudy({ project, next, current }: DetailProps) {
         next={next}
         current={current}
         category="Safety · Dashboard · 2026 "
-        description="A safety dashboard for operational teams that brings complex site data into one clear, easy-to-read view."
+        description="A safety dashboard to understand and monitor safety information across physical locations."
         tags={["UI / UX intern", "8 weeks", "2026"]}
       />
-      <div className="case-body">
+      <div className="case-body case-container">
         <section className="custom-section omnilor-context">
           <p className="chapter-label">The context</p>
           <h2>
-            Making complex safety data <em>easier to read.</em>
+            Making complex safety
+            <br /> data <em>easier to read.</em>
           </h2>
           <p>
             Safety systems can hold a huge amount of information - locations, buildings, alerts,
             incidents, and different status types. The challenge wasn't to show more information. It
             was to help people understand what matters right now.
           </p>
-          <div className="custom-card-grid">
-            {focus.map((item) => (
-              <ComicPanel key={item}>
-                <span className="custom-dot" />
-                {item}
-              </ComicPanel>
-            ))}
-          </div>
+          <ComicPanel className="dot-panel">
+            <p className="chapter-label">On the map</p>
+            <ul>
+              {focus.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </ComicPanel>
         </section>
         <section className="custom-section">
-          <p className="chapter-label">The goal</p>
+          <p className="chapter-label">The brief</p>
           <h2>
-            One dashboard. <em>A clearer view.</em>
+            One dashboard. A <em>clearer</em> view.
           </h2>
           <p>
             The goal was a centralized safety dashboard that gives people a clear overview of
@@ -570,7 +526,14 @@ function OmnilorCaseStudy({ project, next, current }: DetailProps) {
         </section>
         <CustomNumberSection
           eyebrow="the approach"
-          heading="From map overview to building detail"
+          className="omnilor-approach"
+          heading={
+            <>
+              From map overview
+              <br /> <em>to building detail.</em>
+            </>
+          }
+          description="A transparent care journey that helps patients choose confidently while reducing pressure on support teams."
           items={flow}
         />
         <section className="custom-section">
@@ -584,13 +547,13 @@ function OmnilorCaseStudy({ project, next, current }: DetailProps) {
           </p>
           <div className="custom-alerts">
             {[
+              ["map", "Always visible. The starting point — where am I looking?"],
               ["location markers", "Seen at a glance while scanning. Is anything here?"],
               ["Alerts", "Surfaces only when something needs attention."],
               [
                 "building information",
                 "Revealed only after a location is selected. What exactly is going on?",
               ],
-              ["map", "Always visible. The starting point — where am I looking?"],
             ].map(([title, text]) => (
               <div key={title}>
                 <strong>{title}</strong>
@@ -600,37 +563,37 @@ function OmnilorCaseStudy({ project, next, current }: DetailProps) {
           </div>
         </section>
         <section className="custom-section omnilor-prototype">
-          <p className="chapter-label">Interactive prototype</p>
+          <p className="chapter-label">The prototype</p>
           <h2>
             Seeing the dashboard <em>live in motion.</em>
           </h2>
-          <div className="prototype-frame">
-            <video src={omnilorPrototype} controls playsInline preload="metadata">
-              Your browser does not support video playback.
-            </video>
-          </div>
+          <DashboardPlayer src={omnilorPrototype} />
         </section>
-        <section className="custom-section">
-          <p className="chapter-label">what i’m proud of</p>
-          <h2>
-            A clearer way to read a <em>complex situation.</em>
-          </h2>
-          <div className="custom-card-grid">
-            {[
-              "Turned the map from a background into an active interface",
-              "Progressive disclosure of detail",
-              "Context preserved while opening building detail",
-              "Reusable components across states",
-            ].map((item) => (
-              <ComicPanel key={item}>
-                <span className="custom-dot" />
-                {item}
-              </ComicPanel>
-            ))}
+        <section className="custom-section omnilor-proud">
+          <div>
+            <p className="chapter-label">what I’m proud of</p>
+            <h2>A clearer way to read a complex situation.</h2>
           </div>
+          <ComicPanel className="dot-panel">
+            <ul>
+              {[
+                "Turned the map from a background into an active interface",
+                "Progressive disclosure of detail",
+                "Context preserved while opening building detail",
+                "Reusable components across states",
+              ].map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </ComicPanel>
         </section>
         <CustomOutcome
-          heading="A safety dashboard built around context."
+          heading={
+            <>
+              A safety dashboard <em>built around context.</em>
+            </>
+          }
+          numbered
           items={[
             "Map-based experience that stays legible under real data load.",
             "Building information layered in without losing the overview.",
@@ -648,16 +611,19 @@ function CustomNumberSection({
   eyebrow,
   heading,
   items,
+  description,
 }: {
   className?: string;
   eyebrow: string;
-  heading: string;
+  heading: ReactNode;
   items: string[];
+  description?: string;
 }) {
   return (
     <section className={`custom-section custom-number-section ${className}`}>
       <p className="chapter-label">{eyebrow}</p>
       <h2>{heading}</h2>
+      {description && <p className="number-description">{description}</p>}
       <ol>
         {items.map((item, index) => (
           <li key={item}>
@@ -670,14 +636,25 @@ function CustomNumberSection({
   );
 }
 
-function CustomOutcome({ heading, items }: { heading: string; items: string[] }) {
+function CustomOutcome({
+  heading,
+  items,
+  numbered = false,
+}: {
+  heading: ReactNode;
+  items: string[];
+  numbered?: boolean;
+}) {
   return (
     <section className="custom-section custom-outcome">
       <p className="chapter-label">Outcome</p>
       <h2>{heading}</h2>
       <div className="custom-outcome-grid">
-        {items.map((item) => (
-          <div key={item}>{item}</div>
+        {items.map((item, index) => (
+          <div key={item}>
+            {numbered && <strong>0{index + 1}</strong>}
+            {item}
+          </div>
         ))}
       </div>
     </section>
@@ -696,9 +673,11 @@ function BluesCaseStudy({
   return (
     <article className="case-study case-blue blues-case-study">
       <header className="case-hero">
-        <Link to="/work" className="back-link">
-          <ArrowLeft /> All work
-        </Link>
+        <div className="case-container case-back-row">
+          <Link to="/work" className="back-link">
+            <ArrowLeft /> All work
+          </Link>
+        </div>
         <div className="case-title">
           <p>{bluesDetail.category}</p>
           <h1>{project.title}</h1>
@@ -714,12 +693,13 @@ function BluesCaseStudy({
           <span>Case study / 0{current + 1}</span>
         </div>
       </header>
-      <div className="case-body">
+      <div className="case-body case-container">
         <section className="case-opening blues-setup">
           <div>
             <p className="chapter-label">The setup</p>
             <h2>
-              A little love letter to <span className="blues-accent">blue</span>
+              A little love letter
+              <br /> to <span className="blues-accent">blue</span>
             </h2>
           </div>
           <a
@@ -729,7 +709,7 @@ function BluesCaseStudy({
             target="_blank"
             rel="noreferrer"
           >
-            <ArrowDownToLine aria-hidden="true" /> Read Design System
+            <ArrowDownToLine aria-hidden="true" /> Download Design System
           </a>
         </section>
         <div className="case-columns">
@@ -738,7 +718,7 @@ function BluesCaseStudy({
             <p>{bluesDetail.goal}</p>
           </ComicPanel>
           <ComicPanel>
-            <span className="panel-label">The approach</span>
+            <span className="panel-label">Approach</span>
             <p>{bluesDetail.approach}</p>
           </ComicPanel>
         </div>
@@ -761,7 +741,7 @@ function BluesCaseStudy({
           <div>
             <p className="chapter-label">What changed</p>
             <h2>
-              A more <em>cohesive experience,</em> built to scale.
+              A more <em>cohesive experience</em> , built to scale.
             </h2>
           </div>
           <ol className="blues-change-list">
@@ -775,10 +755,10 @@ function BluesCaseStudy({
         </section>
         <section className="case-chapter blues-audio-challenge">
           <div>
-            <p className="chapter-label">The audio challenge</p>
+            <p className="chapter-label">The biggest challenge</p>
             <h2>
-              Making <em className="blues-accent">music</em> part of the experience without making
-              it intrusive.
+              Making <em className="blues-accent">music</em> part of the experience
+              <br /> -without making it intrusive.
             </h2>
             <p className="chapter-copy">{bluesDetail.audioDescription}</p>
             <ol className="blues-audio-points">
@@ -815,22 +795,12 @@ function BluesCaseStudy({
 
 function BluesAudioWidget() {
   return (
-    <div className="blues-audio-widget" aria-label="Embedded audio player">
-      <div className="blues-audio-title">
-        <Music2 aria-hidden="true" />
-        <span>You&apos;re gonna look good in blues - play</span>
-      </div>
-      <small>You Will Look Good in Blues</small>
-      <div className="blues-audio-controls">
-        <span className="blues-play-dot" aria-hidden="true" />
-        <span className="blues-audio-track">
-          <i />
-        </span>
-        <span>VOL</span>
-        <span className="blues-volume-track">
-          <i />
-        </span>
-      </div>
-    </div>
+    <img
+      className="blues-audio-widget"
+      src={audioImage}
+      alt="Blues audio interface: an expandable player with playback and volume controls"
+      width={366}
+      height={137}
+    />
   );
 }

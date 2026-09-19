@@ -28,7 +28,7 @@ function ContactPage() {
       <div className="contact-scene">
         <div className="contact-copy">
           <p>
-            I’m always happy to hear about thoughtful products, interesting ideas, or just have a
+            I’m always happy to hear about thoughtful products interesting ideas, or just have a
             good conversation. Feel free to reach out.
           </p>
           <a href="mailto:fatmamourad263@gmail.com" className="email-link">

@@ -25,22 +25,22 @@ export const Route = createFileRoute("/resume")({
 });
 const roles = [
   {
-    years: "May — Jul 2026",
+    years: "May - Jul 2026",
     title: "UI/UX Design Intern",
-    company: "PeterCoreTex",
-    text: "Designed digital interfaces and explored user flows and interaction patterns. Also collaborated around product and frontend considerations.",
+    company: "PetroCortex",
+    text: "Designed digital interfaces and explored user flows and interaction patterns. Also, Collaborated around product and frontend considerations.",
   },
   {
-    years: "2025 — 2026",
+    years: "2025 - 2026",
     title: "UI/UX Projects",
     company: "Freelance",
     text: "Shipped cross-platform products, facilitated discovery, and helped establish a shared design system.",
   },
   {
-    years: "2023 — 2025",
+    years: "2023 - 2025",
     title: "Market Analyst",
-    company: "Cairo",
-    text: "Analyzed and executed trades across crypto markets, developing and testing trading strategies through market analysis and backtesting.",
+    company: "· Cairo",
+    text: "Analyze and execute trades across Crypto markets. Develop and test trading strategies through market analysis and backtesting.",
   },
 ];
 function ResumePage() {
@@ -63,7 +63,7 @@ function ResumePage() {
           target="_blank"
           rel="noreferrer"
         >
-          <Download /> Download PDF
+          <Download /> Request PDF
         </a>
       </div>
       <div className="resume-sheet">
@@ -103,21 +103,26 @@ function ResumePage() {
           </div>
           <div>
             <h2>Education</h2>
-            <h3>BSc, Science</h3>
-            <p>
-              Biochemistry & Microbiology
-              <br />
-              2020—2024 · Grade A
-            </p>
+            <div className="resume-education">
+              <div>
+                <h3>BSc, Science</h3>
+                <p>Biochemistry &amp; Microbiology</p>
+              </div>
+              <p>
+                2020 - 2024
+                <br />
+                Grade : A
+              </p>
+            </div>
           </div>
           <div>
             <h2>Languages</h2>
             <p>
-              Arabic — Native
+              Arabic - Native
               <br />
-              English — Fluent
+              English - Fluent
               <br />
-              German — Beginner
+              German - Beginner
             </p>
           </div>
         </aside>

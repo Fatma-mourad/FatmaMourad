@@ -30,3 +30,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local reference inspection and browser QA tools
+.tmp-tools/

@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowUpRight } from "lucide-react";
 import { ProjectCard, SectionTitle } from "@/components/portfolio-ui";
 import { projects } from "@/lib/portfolio-data";
 
@@ -9,7 +8,8 @@ export const Route = createFileRoute("/work/")({
       { title: "Selected Work — Fatma Mourad" },
       {
         name: "description",
-        content: "Product design case studies across mobility, health, and sustainable living.",
+        content:
+          "Product design case studies across e-commerce, safety dashboards, digital services, and savings.",
       },
       { property: "og:title", content: "Selected Work — Fatma Mourad" },
       {
@@ -31,8 +31,8 @@ function WorkPage() {
       </SectionTitle>
       <div className="archive-intro">
         <p>
-          A selection of end-to-end product work - built through research, sharp questions, and
-          plenty of iteration.
+          A selection of end-to-end product work built through research, sharp questions, and plenty
+          of iteration.
         </p>
         <span>2024—2026</span>
       </div>
@@ -40,16 +40,6 @@ function WorkPage() {
         {projects.map((project, index) => (
           <ProjectCard key={project.slug} project={project} index={index} />
         ))}
-      </div>
-      <div className="work-more-projects">
-        <a
-          className="ink-button"
-          href="https://www.behance.net/fatmamourad263"
-          target="_blank"
-          rel="noreferrer"
-        >
-          View More Projects on Behance <ArrowUpRight aria-hidden="true" />
-        </a>
       </div>
     </div>
   );
