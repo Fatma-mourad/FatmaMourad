@@ -32,6 +32,9 @@ body:has(.case-study) .site-header {
 .garlic-case-study {
   --case-color: #5c7350;
 }
+.garlic-case-study .back-link {
+  color: #fff;
+}
 .mintro-case-study {
   --case-color: var(--lilac);
 }
