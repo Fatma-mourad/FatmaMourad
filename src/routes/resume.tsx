@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Download } from "lucide-react";
 import { SectionTitle, Tag } from "@/components/portfolio-ui";
-import resumePdf from "@/assets/Fatma Mourad.pdf?url";
 
 export const Route = createFileRoute("/resume")({
   head: () => ({
@@ -58,7 +57,7 @@ function ResumePage() {
         </p>
         <a
           className="download-button"
-          href={resumePdf}
+          href="/Fatma%20Mourad.pdf"
           download="Fatma Mourad.pdf"
           target="_blank"
           rel="noreferrer"
