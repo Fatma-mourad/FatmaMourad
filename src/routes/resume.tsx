@@ -63,7 +63,7 @@ function ResumePage() {
           target="_blank"
           rel="noreferrer"
         >
-          <Download /> Request PDF
+          <Download /> Download CV
         </a>
       </div>
       <div className="resume-sheet">
