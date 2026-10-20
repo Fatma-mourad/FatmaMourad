@@ -5,12 +5,12 @@ import { SectionTitle, Tag } from "@/components/portfolio-ui";
 export const Route = createFileRoute("/resume")({
   head: () => ({
     meta: [
-      { title: "Resume — Fatma Mourad" },
+      { title: "Resume" },
       {
         name: "description",
         content: "Experience, education, and capabilities of product designer Fatma Mourad.",
       },
-      { property: "og:title", content: "Resume — Fatma Mourad" },
+      { property: "og:title", content: "Resume" },
       {
         property: "og:description",
         content:

@@ -12,7 +12,7 @@ export const Route = createFileRoute("/about")({
         content:
           "Meet Fatma Mourad, a product designer who makes complicated things feel clear and human.",
       },
-      { property: "og:title", content: "About Fatma Mourad" },
+      { property: "og:title", content: "About" },
       {
         property: "og:description",
         content: "Product designer, systems thinker, curious observer.",

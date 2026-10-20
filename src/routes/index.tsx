@@ -6,13 +6,13 @@ import { InkButton, SpeechBubble } from "@/components/portfolio-ui";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Fatma Mourad — Product Designer" },
+      { title: "Home" },
       {
         name: "description",
         content:
           "Fatma Mourad designs thoughtful digital products where clarity, curiosity, and human needs meet.",
       },
-      { property: "og:title", content: "Fatma Mourad — Product Designer" },
+      { property: "og:title", content: "Home" },
       {
         property: "og:description",
         content: "A product design portfolio told inside a hand-drawn world.",

@@ -79,14 +79,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Fatma Mourad — Product Designer" },
+      { title: "Home" },
       {
         name: "description",
         content:
           "Product designer shaping clear, human digital experiences through research, systems thinking, and visual storytelling.",
       },
       { name: "author", content: "Fatma Mourad" },
-      { property: "og:title", content: "Fatma Mourad — Product Designer" },
+      { property: "og:title", content: "Home" },
       { property: "og:description", content: "Selected product design work by Fatma Mourad." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -103,7 +103,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Bangers&family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600;700&display=swap",
       },
-      { rel: "icon", href: "/favicon.png", type: "image/png" },
+      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
     ],
   }),
   shellComponent: RootShell,

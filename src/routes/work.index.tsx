@@ -7,13 +7,13 @@ export const Route = createFileRoute("/work/")({
     search["project"] === "omnilor" ? { project: "omnilor" } : {},
   head: () => ({
     meta: [
-      { title: "Selected Work — Fatma Mourad" },
+      { title: "Selected Work" },
       {
         name: "description",
         content:
           "Product design case studies across e-commerce, safety dashboards, digital services, and savings.",
       },
-      { property: "og:title", content: "Selected Work — Fatma Mourad" },
+      { property: "og:title", content: "Selected Work" },
       {
         property: "og:description",
         content: "An archive of thoughtful products designed for real human needs.",
