@@ -1,0 +1,44 @@
+{
+  "slug": "omnilor",
+  "title": "Omnilor",
+  "category": "SaaS / Dashboard design",
+  "image": "/api/omnilor/media/cover",
+  "imageAlt": "Omnilor safety dashboard laptop mockup",
+  "overview": "A safety dashboard that helps teams understand locations, risks, and incidents through a clearer spatial interface.",
+  "role": "UI/UX Design",
+  "challenge": "Designing a clear, well-structured dashboard while ensuring effective collaboration between design and development.",
+  "approach": "I worked on structuring the dashboard interface, organizing UI components, and preparing design specifications for developer handoff. I also collaborated with team members to align on design decisions and support a smoother workflow.",
+  "learned": "I gained experience in dashboard design, developer handoff, and team collaboration. I learned the importance of clear communication, organized design files, and aligning design decisions with the team throughout the workflow.",
+  "images": [
+    {
+      "src": "/api/omnilor/media/cover",
+      "alt": "Omnilor safety dashboard laptop mockup"
+    },
+    {
+      "src": "/api/omnilor/media/02",
+      "alt": "Omnilor facility map upload step"
+    },
+    {
+      "src": "/api/omnilor/media/03",
+      "alt": "Omnilor area and asset configuration with map layers"
+    },
+    {
+      "src": "/api/omnilor/media/04",
+      "alt": "Omnilor facility configuration review and summary"
+    },
+    {
+      "src": "/api/omnilor/media/05",
+      "alt": "Omnilor safety dashboard with site overview and recent alerts"
+    },
+    {
+      "src": "/api/omnilor/media/06",
+      "alt": "Omnilor dashboard with selected building details"
+    }
+  ],
+  "links": [
+    {
+      "label": "Watch prototype",
+      "href": "/api/omnilor/media/prototype"
+    }
+  ]
+}

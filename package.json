@@ -9,6 +9,8 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test:security": "node --test --test-isolation=none tests/omnilor-auth.test.mjs tests/omnilor-delivery.test.mjs",
     "format": "prettier --write ."
   },
   "overrides": {

@@ -1,5 +1,5 @@
 import bluesImage from "@/assets/blues mockup.png";
-import omnilorImage from "@/assets/omni 2.png";
+import omnilorImage from "@/assets/omnilor-mockup-01.jpg";
 import garlicImage from "@/assets/garlic.png";
 import mintroImage from "@/assets/mintro.png";
 
@@ -74,50 +74,19 @@ export const projects: Project[] = [
   {
     slug: "omnilor",
     title: "Omnilor",
-    category: "Safety · Dashboard",
-    description:
-      "A safety dashboard that helps teams understand locations, risks, and incidents through a clearer spatial interface.",
+    category: "SaaS / Dashboard design",
+    description: "This project is password protected.",
     year: "2026",
-    duration: "8 weeks",
-    role: "UI / UX intern",
+    duration: "",
+    role: "",
     image: omnilorImage,
-    imageAlt: "Omnilor map-based safety dashboard displayed on a laptop",
+    imageAlt: "Omnilor project cover",
     tone: "blue",
-    challenge:
-      "Safety systems can hold a huge amount of information. The challenge was to help people understand what matters right now.",
-    approach:
-      "A transparent care journey that helps operators move from map overview to building detail without losing context.",
-    outcome: "A clearer way to read a complex situation, built around context.",
-    metrics: [
-      { value: "01", label: "legible map overview" },
-      { value: "02", label: "layered building detail" },
-      { value: "03", label: "reusable safety system" },
-    ],
-    chapters: [
-      {
-        eyebrow: "The brief",
-        title: "One dashboard.",
-        accent: "A complete view.",
-        items: [
-          "Centralized overview",
-          "Location-based information",
-          "Operational interface",
-          "Trustworthy experience",
-        ],
-      },
-      {
-        eyebrow: "Information hierarchy",
-        title: "If everything is important,",
-        accent: "nothing is.",
-        body: "The person sees the overall situation first, then selects a location, surfaces only active alerts, and reveals building information on demand.",
-      },
-      {
-        eyebrow: "The prototype",
-        title: "Seeing the dashboard",
-        accent: "live in motion.",
-        items: ["Progressive disclosure", "Context preserved", "Reusable components"],
-      },
-    ],
+    challenge: "",
+    approach: "",
+    outcome: "",
+    metrics: [],
+    chapters: [],
   },
   {
     slug: "garlic",

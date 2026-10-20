@@ -1,0 +1,75 @@
+/* Native scrollbars share the paper-and-ink palette, without styling other widgets. */
+html,
+.sw-panel {
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink-soft) var(--paper-dark);
+}
+
+/* Chromium/Safari support thumb hover through their native scrollbar pseudo-elements. */
+@supports selector(::-webkit-scrollbar) {
+  html,
+  .sw-panel {
+    scrollbar-width: auto;
+    scrollbar-color: auto;
+  }
+
+  html::-webkit-scrollbar,
+  .sw-panel::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  html::-webkit-scrollbar-track,
+  .sw-panel::-webkit-scrollbar-track,
+  html::-webkit-scrollbar-corner,
+  .sw-panel::-webkit-scrollbar-corner {
+    background: var(--paper-dark);
+  }
+
+  html::-webkit-scrollbar-thumb,
+  .sw-panel::-webkit-scrollbar-thumb {
+    min-height: 36px;
+    border: 1px solid var(--paper-dark);
+    border-radius: 2px;
+    background: var(--ink-soft);
+  }
+
+  html::-webkit-scrollbar-thumb:hover,
+  .sw-panel::-webkit-scrollbar-thumb:hover,
+  html::-webkit-scrollbar-thumb:active,
+  .sw-panel::-webkit-scrollbar-thumb:active {
+    background: var(--ink);
+  }
+}
+
+.sw-panel {
+  /* Keep keyboard-focused content clear of the existing sticky header. */
+  scroll-padding-block: 6rem 1.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  .sw-panel {
+    scroll-behavior: auto;
+  }
+}
+
+@media (forced-colors: active) {
+  html,
+  .sw-panel {
+    scrollbar-color: auto;
+  }
+
+  html::-webkit-scrollbar-thumb,
+  .sw-panel::-webkit-scrollbar-thumb {
+    background: CanvasText;
+    border-color: Canvas;
+  }
+
+  html::-webkit-scrollbar-track,
+  .sw-panel::-webkit-scrollbar-track,
+  html::-webkit-scrollbar-corner,
+  .sw-panel::-webkit-scrollbar-corner {
+    background: Canvas;
+  }
+}

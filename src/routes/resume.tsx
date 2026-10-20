@@ -22,7 +22,23 @@ export const Route = createFileRoute("/resume")({
   }),
   component: ResumePage,
 });
-const roles = [
+const roles: {
+  years: string;
+  title: string;
+  company: string;
+  text?: string;
+  bullets?: string[];
+}[] = [
+  {
+    years: "Oct 2026 - Present",
+    title: "Web Designer (Internship)",
+    company: "Syntecxhub",
+    bullets: [
+      "Designed a B2B fintech landing page for PayLink, focusing on brand consistency, clear messaging, and simplifying payments for service-based businesses.",
+      "Designed Faye, an editorial-style personal portfolio website, exploring advanced typography, art direction, and interactive web presentation.",
+      "Applied user-centered design principles to deliver cohesive digital experiences across both web projects.",
+    ],
+  },
   {
     years: "May - Jul 2026",
     title: "UI/UX Design Intern",
@@ -58,7 +74,7 @@ function ResumePage() {
         <a
           className="download-button"
           href="/Fatma%20Mourad.pdf"
-          download="Fatma Mourad.pdf"
+          download="Fatma Mourad - Product designer.pdf"
           target="_blank"
           rel="noreferrer"
         >
@@ -76,7 +92,16 @@ function ResumePage() {
                 <div>
                   <h3>{role.title}</h3>
                   <strong>{role.company}</strong>
-                  <p>{role.text}</p>
+                  {role.text && <p>{role.text}</p>}
+                  {role.bullets && (
+                    <ul className="list-disc space-y-2 pl-5">
+                      {role.bullets.map((bullet) => (
+                        <li key={bullet}>
+                          <p>{bullet}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </article>
             ))}

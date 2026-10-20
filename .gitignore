@@ -33,3 +33,7 @@ dist-ssr
 
 # Local reference inspection and browser QA tools
 .tmp-tools/
+.vercel/
+.env
+.env.*
+!.env.example

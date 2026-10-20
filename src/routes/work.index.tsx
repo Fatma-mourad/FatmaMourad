@@ -1,8 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ProjectCard, SectionTitle } from "@/components/portfolio-ui";
-import { projects } from "@/lib/portfolio-data";
+import { SectionTitle } from "@/components/portfolio-ui";
+import { SelectedWorkGallery } from "@/components/selected-work-gallery";
 
 export const Route = createFileRoute("/work/")({
+  validateSearch: (search: Record<string, unknown>): { project?: string } =>
+    search["project"] === "omnilor" ? { project: "omnilor" } : {},
   head: () => ({
     meta: [
       { title: "Selected Work — Fatma Mourad" },
@@ -36,11 +38,7 @@ function WorkPage() {
         </p>
         <span>2024—2026</span>
       </div>
-      <div className="project-archive">
-        {projects.map((project, index) => (
-          <ProjectCard key={project.slug} project={project} index={index} />
-        ))}
-      </div>
+      <SelectedWorkGallery />
     </div>
   );
 }

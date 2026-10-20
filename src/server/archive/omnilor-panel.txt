@@ -1,0 +1,22 @@
+  {
+    ...documented("omnilor", "SaaS / Dashboard design", [
+      { label: "Watch prototype", href: prototype },
+    ]),
+    role: "UI/UX Design",
+    challenge:
+      "Designing a clear, well-structured dashboard while ensuring effective collaboration between design and development.",
+    approach:
+      "I worked on structuring the dashboard interface, organizing UI components, and preparing design specifications for developer handoff. I also collaborated with team members to align on design decisions and support a smoother workflow.",
+    learned:
+      "I gained experience in dashboard design, developer handoff, and team collaboration. I learned the importance of clear communication, organized design files, and aligning design decisions with the team throughout the workflow.",
+    image: omnilorMockup,
+    imageAlt: "Omnilor safety dashboard displayed on a laptop against a dark background",
+    images: [
+      { src: omnilorMockup, alt: "Omnilor safety dashboard laptop mockup" },
+      { src: omnilor02, alt: "Omnilor facility map upload step" },
+      { src: omnilor03, alt: "Omnilor area and asset configuration with map layers" },
+      { src: omnilor04, alt: "Omnilor facility configuration review and summary" },
+      { src: omnilor05, alt: "Omnilor safety dashboard with site overview and recent alerts" },
+      { src: omnilor06, alt: "Omnilor dashboard with selected building details" },
+    ],
+  },

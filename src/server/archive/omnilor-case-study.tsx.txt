@@ -1,0 +1,147 @@
+function OmnilorCaseStudy({ project, next, current }: DetailProps) {
+  const focus = [
+    "Multiple locations at once",
+    "Live safety alerts",
+    "Per-building data",
+    "Map-based navigation",
+  ];
+  const pillars = [
+    "Centralized overview",
+    "Location-based information",
+    "Operational interface",
+    "Trustworthy experience",
+  ];
+  const flow = [
+    "Scan - people scan the map to read the overall situation.",
+    "Identify — location markers communicate different safety states.",
+    "Select — people select a location to inspect one building.",
+    "Understand — a popup reveals detail without losing map context.",
+  ];
+  return (
+    <article className="case-study custom-case omnilor-case-study">
+      <DetailHero
+        project={project}
+        next={next}
+        current={current}
+        category="Safety · Dashboard · 2026 "
+        description="A safety dashboard to understand and monitor safety information across physical locations."
+        tags={["UI / UX intern", "8 weeks", "2026"]}
+      />
+      <div className="case-body case-container">
+        <section className="custom-section omnilor-context">
+          <p className="chapter-label">The context</p>
+          <h2>
+            Making complex safety
+            <br /> data <em>easier to read.</em>
+          </h2>
+          <p>
+            Safety systems can hold a huge amount of information - locations, buildings, alerts,
+            incidents, and different status types. The challenge wasn't to show more information. It
+            was to help people understand what matters right now.
+          </p>
+          <ComicPanel className="dot-panel">
+            <p className="chapter-label">On the map</p>
+            <ul>
+              {focus.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </ComicPanel>
+        </section>
+        <section className="custom-section">
+          <p className="chapter-label">The brief</p>
+          <h2>
+            One dashboard. A <em>clearer</em> view.
+          </h2>
+          <p>
+            The goal was a centralized safety dashboard that gives people a clear overview of
+            different locations and helps them spot what's important, fast.
+          </p>
+          <div className="custom-pills">
+            {pillars.map((item) => (
+              <span key={item}>{item}</span>
+            ))}
+          </div>
+        </section>
+        <CustomNumberSection
+          eyebrow="the approach"
+          className="omnilor-approach"
+          heading={
+            <>
+              From map overview
+              <br /> <em>to building detail.</em>
+            </>
+          }
+          description="A transparent care journey that helps patients choose confidently while reducing pressure on support teams."
+          items={flow}
+        />
+        <section className="custom-section">
+          <p className="chapter-label">information hierarchy</p>
+          <h2>
+            If everything is important, <em>nothing is.</em>
+          </h2>
+          <p>
+            Not every piece of safety data can sit on screen at once - so each layer below answers a
+            different question, and only appears when the person actually needs it.
+          </p>
+          <div className="custom-alerts">
+            {[
+              ["map", "Always visible. The starting point — where am I looking?"],
+              ["location markers", "Seen at a glance while scanning. Is anything here?"],
+              ["Alerts", "Surfaces only when something needs attention."],
+              [
+                "building information",
+                "Revealed only after a location is selected. What exactly is going on?",
+              ],
+            ].map(([title, text]) => (
+              <div key={title}>
+                <strong>{title}</strong>
+                <span>{text}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+        <section className="custom-section omnilor-prototype">
+          <p className="chapter-label">The prototype</p>
+          <h2>
+            Seeing the dashboard <em>live in motion.</em>
+          </h2>
+          <DashboardPlayer src={omnilorPrototype} />
+        </section>
+        <section className="custom-section omnilor-proud">
+          <div>
+            <p className="chapter-label">what I’m proud of</p>
+            <h2>A clearer way to read a complex situation.</h2>
+          </div>
+          <ComicPanel className="dot-panel">
+            <ul>
+              {[
+                "Turned the map from a background into an active interface",
+                "Progressive disclosure of detail",
+                "Context preserved while opening building detail",
+                "Reusable components across states",
+              ].map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </ComicPanel>
+        </section>
+        <CustomOutcome
+          heading={
+            <>
+              A safety dashboard <em>built around context.</em>
+            </>
+          }
+          numbered
+          items={[
+            "Map-based experience that stays legible under real data load.",
+            "Building information layered in without losing the overview.",
+            "Reusable design system spanning map, cards, and states.",
+          ]}
+        />
+        <DetailNext next={next} />
+      </div>
+    </article>
+  );
+}
+

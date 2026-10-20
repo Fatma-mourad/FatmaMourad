@@ -6,7 +6,7 @@ import { ComicPanel, SectionTitle, SpeechBubble, Tag } from "@/components/portfo
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Fatma Mourad" },
+      { title: "About" },
       {
         name: "description",
         content:

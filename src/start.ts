@@ -24,6 +24,13 @@ const csrfMiddleware = createCsrfMiddleware({
   filter: (ctx) => ctx.handlerType === "serverFn",
 });
 
+const omnilorMiddleware = createMiddleware().server(async ({ request, next }) => {
+  const path = new URL(request.url).pathname;
+  if (path !== "/api/omnilor" && !path.startsWith("/api/omnilor/")) return next();
+  const { handleOmnilor } = await import("./server/omnilor.server");
+  return (await handleOmnilor(request)) ?? next();
+});
+
 export const startInstance = createStart(() => ({
-  requestMiddleware: [errorMiddleware, csrfMiddleware],
+  requestMiddleware: [errorMiddleware, omnilorMiddleware, csrfMiddleware],
 }));
